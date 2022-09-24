@@ -26,8 +26,8 @@ public class User{
         return password;
     }
     //password checker
-    public boolean checkPassWord(String passwordThe1st, String passwordThe2nd) {
-        if (passwordThe1st.equals(passwordThe2nd)){
+    public boolean checkPassWord(String password, String confirmPassword) {
+        if (password.equals(confirmPassword)){
            return true;
         }
         else{
@@ -60,7 +60,7 @@ public class User{
             }
         }
         else
-            System.out.println("Invalid national code. National ID code a 10-digit number.");
+            System.out.println("Invalid national code. National code is a 10-digit number.");
             return false;
     }
     public void setNationalCOde(String nationalCOde) {
@@ -76,7 +76,7 @@ public class User{
         if(Pattern.compile("\\d{4}/\\d{2}/\\d{2}").matcher(birthday).matches()){
             String[] birthdayParts = birthday.split("/");
             if(Integer.parseInt(birthdayParts[1])>12 || Integer.parseInt(birthdayParts[1])<0){
-                System.out.println("Invalid month number. Months numbers are from 1 to 12.");
+                System.out.println("Invalid month number. Month number is from 1 to 12.");
                 return false;
             }
             if(Integer.parseInt(birthdayParts[1])<=6 && (Integer.parseInt(birthdayParts[2])<0 || Integer.parseInt(birthdayParts[2])>31)){
@@ -108,6 +108,12 @@ public class User{
         this.birthday = birthday;
     }
 
+    public boolean checkArticleID(String articleID){
+        if(Pattern.compile("[0-9]+").matcher(articleID).matches())
+            return true;
+        else
+            return false;
+    }
     //Leap year checker
     public boolean isLeapYear(int year){
         ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(1, 5, 9, 13, 17, 22,26, 30));

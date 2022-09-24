@@ -20,10 +20,26 @@ public class UserService {
     // public void deleteCustomer(int id){
     //     UserService.deleteCustomer(id);
     // }
+
+
+    public int getUserID(String username){
+        return userRepository.getUserID(username);
+    }
 public boolean checkUserByUsername(String username){
         return userRepository.checkUserByUsername(username);
     }
-    // public void updateCustomer(String name , int id){
+
+    public boolean checkUserByOldPassword(String username, String oldPassword){
+        return userRepository.checkUserByOldPassword(username, oldPassword);
+    }
+
+
+    public boolean updatePassword(String username, String newPassword){
+        return userRepository.updatePassword(username, newPassword);
+    }
+
+
+        // public void updateCustomer(String name , int id){
     //     UserService.updateCustomer(name , id);
     // }
     public boolean checkSignIn(String username, String password){

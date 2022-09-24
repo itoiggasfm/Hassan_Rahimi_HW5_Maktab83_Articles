@@ -15,6 +15,7 @@ CREATE Table Articles
     brief TEXT,
     content TEXT,
     is_published BOOLEAN,
+    create_date date,
     user_id INT,
         CONSTRAINT fk_userid
             Foreign Key (user_id)
